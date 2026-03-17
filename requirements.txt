@@ -22,6 +22,9 @@ jupyterlab-language-pack-zh-CN
 # P5 kernel (optional)
 jupyterlite-p5-kernel==0.1.0
 
+# Lua kernel via Xeus (optional)
+jupyterlite-xeus-lua
+
 # JupyterLab: Fasta file renderer (optional)
 jupyterlab-fasta>=3.3.0,<4
 # JupyterLab: Geojson file renderer (optional)
