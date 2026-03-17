@@ -10,11 +10,20 @@ jupyterlite-pyodide-kernel==0.7.0
 jupyterlite-javascript-kernel==0.3.0
 
 # Language support (optional)
+jupyterlab-language-pack-ar-SA
+jupyterlab-language-pack-de-DE
+jupyterlab-language-pack-es-ES
 jupyterlab-language-pack-fr-FR
+jupyterlab-language-pack-id-ID
+jupyterlab-language-pack-it-IT
+jupyterlab-language-pack-ru-RU
 jupyterlab-language-pack-zh-CN
 
 # P5 kernel (optional)
 jupyterlite-p5-kernel==0.1.0
+
+# MySTjs renderer
+jupyterlab-mystjs
 
 # JupyterLab: Fasta file renderer (optional)
 jupyterlab-fasta>=3.3.0,<4
