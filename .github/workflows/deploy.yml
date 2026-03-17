@@ -21,10 +21,13 @@ jobs:
       - name: Install the dependencies
         run: |
           python -m pip install -r requirements.txt
+      - name: Download Pyodide 0.29.3
+        run: |
+          wget -O pyodide.tar.bz2 https://github.com/pyodide/pyodide/releases/download/0.29.3/pyodide-0.29.3.tar.bz2
       - name: Build the JupyterLite site
         run: |
           cp README.md content
-          jupyter lite build --contents content --output-dir dist
+          jupyter lite build --contents content --output-dir dist --pyodide=pyodide.tar.bz2
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
