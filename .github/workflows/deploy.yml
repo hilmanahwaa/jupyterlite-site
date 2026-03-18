@@ -24,6 +24,8 @@ jobs:
       - name: Download latest Pyodide from its Github site
         run: |
           gh release download -R pyodide/pyodide -p $(gh release view -R pyodide/pyodide | grep -E pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2 | sed -E "s/.*(pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2).*/\1/") -O pyodide.tar.bz2 --clobber
+        env:
+          GH_TOKEN: ${{ github.token }}
       - name: Build the JupyterLite site
         run: |
           cp README.md content
