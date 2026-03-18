@@ -18,6 +18,10 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
+      - name: idk
+        run: |
+          curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -C /usr/local -xvj bin/micromamba
+          eval "$(micromamba shell hook -s posix)"
       - name: Install the dependencies
         run: |
           python -m pip install -r requirements.txt
