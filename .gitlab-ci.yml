@@ -1,25 +1,12 @@
-# To contribute improvements to CI/CD templates, please follow the Development guide at:
-# https://docs.gitlab.com/development/cicd/templates/
-# This specific template is located at:
-# https://gitlab.com/gitlab-org/gitlab/-/blob/master/lib/gitlab/ci/templates/Python.gitlab-ci.yml
 
-# Official language image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/python/tags/
 image: python:trixie
 
-# Change pip's cache directory to be inside the project directory since we can
-# only cache local items.
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-# https://pip.pypa.io/en/stable/topics/caching/
 cache:
   paths:
     - .cache/pip
-
-stages:
-  - build
-  - deploy
 
 before_script:
   - python --version ; pip --version  # For debugging
@@ -30,23 +17,15 @@ before_script:
   - pip install virtualenv
   - virtualenv .venv
   - source .venv/bin/activate
+  - pip install -r requirements.txt
+  - gh release download -R pyodide/pyodide -p $(gh release view -R pyodide/pyodide | grep -E pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2 | sed -E "s/.*(pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2).*/\1/") -O pyodide.tar.bz2 --clobber
 
-build-job:
-  stage: build
+create-pages:
   script:
-    - pip install -r requirements.txt
-    - gh release download -R pyodide/pyodide -p $(gh release view -R pyodide/pyodide | grep -E pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2 | sed -E "s/.*(pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2).*/\1/") -O pyodide.tar.bz2 --clobber
     - cp README.md content
-    - jupyter lite build --contents content --output-dir dist --pyodide=pyodide.tar.bz2
-    
+    - jupyter lite build --contents content --output-dir public --pyodide=pyodide.tar.bz2
   artifacts:
     paths:
-      - dist/
-
-deploy:
-  stage: deploy
-  script:
-    - mkdir .public
-    - cp -rvf dist/* .public
-  environment: production
+      - public/
+  pages: true
 
