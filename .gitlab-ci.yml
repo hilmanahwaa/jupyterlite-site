@@ -20,7 +20,7 @@ cache:
 before_script:
   - python --version ; pip --version  # For debugging
   - apt update
-  - apt install sudo gh
+  - apt install -y sudo gh
   - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -C /usr/local -xvj bin/micromamba
   - eval "$(micromamba shell hook -s posix)"
   - pip install virtualenv
