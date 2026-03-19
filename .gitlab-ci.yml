@@ -28,4 +28,5 @@ create-pages:
     paths:
       - public/
   pages: true
+  allow-failure: true
 
