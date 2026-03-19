@@ -12,8 +12,8 @@ before_script:
   - python --version ; pip --version  # For debugging
   - apt update
   - apt install -y sudo gh
-  - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -C /usr/local -xvj bin/micromamba
-  - eval "$(micromamba shell hook -s posix)"
+  - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
+  - eval "$(bin/micromamba shell hook -s posix)"
   - pip install virtualenv
   - virtualenv .venv
   - source .venv/bin/activate
@@ -28,5 +28,3 @@ create-pages:
     paths:
       - public/
   pages: true
-  allow-failure: true
-
