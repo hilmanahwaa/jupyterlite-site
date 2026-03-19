@@ -4,18 +4,6 @@ image: python:trixie
 variables:
   PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
 
-before_script:
-  - python --version ; pip --version  # For debugging
-  - apt update
-  - apt install -y sudo gh nodejs npm
-  - curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | tar -xvj bin/micromamba
-  - eval "$(bin/micromamba shell hook -s posix)"
-  - pip install virtualenv
-  - virtualenv .venv
-  - source .venv/bin/activate
-  - pip install -r requirements.txt
-  - gh release download -R pyodide/pyodide -p $(gh release view -R pyodide/pyodide | grep -E pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2 | sed -E "s/.*(pyodide-[0-9]+\.[0-9]+\.[0-9]+\.tar\.bz2).*/\1/") -O pyodide.tar.bz2 --clobber
-
 create-pages:
   before_script:
     - python --version ; pip --version  # For debugging
