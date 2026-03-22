@@ -41,7 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./jupyterlite.zip
+          path: ./dist/jupyterlite.zip
 
   deploy:
     needs: build
