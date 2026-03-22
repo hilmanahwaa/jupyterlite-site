@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: idk
+      - name: Download MicroMamba
         run: |
           curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -C /usr/local -xvj bin/micromamba
           eval "$(micromamba shell hook -s posix)"
@@ -34,10 +34,14 @@ jobs:
         run: |
           cp README.md content
           jupyter lite build --contents content --output-dir dist --pyodide=pyodide.tar.bz2
+      - name: Package the artifact
+        run: |
+          cd dist
+          zip -ur9 jupyterlite.zip *
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist
+          path: ./jupyterlite.zip
 
   deploy:
     needs: build
