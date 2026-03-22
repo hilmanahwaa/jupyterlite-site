@@ -22,8 +22,8 @@ jupyterlab-language-pack-zh-CN
 # P5 kernel (optional)
 jupyterlite-p5-kernel==0.1.0
 
-# Lua kernel via Xeus (optional)
-jupyterlite-xeus-lua
+# Xeus kernels (optional)
+jupyterlite-xeus
 
 # JupyterLab: Fasta file renderer (optional)
 jupyterlab-fasta>=3.3.0,<4
@@ -36,6 +36,8 @@ jupyterlab-geojson>=3.4.0,<4
 jupyterlab-night
 # Terminal for JupyterLite (optional)
 jupyterlite-terminal
+# Filesystem access ability for Chrome browsers (optional)
+jupyterlab-filesystem-access
 # JupyterLab: Miami nights theme (optional)
 jupyterlab_miami_nights
 
