@@ -1,0 +1,2 @@
+[tool.jupyterlite.cockle]
+packages = ["vim", "gzip", "tar"]
