@@ -38,8 +38,12 @@ jobs:
         run: |
           cd dist
           zip -ur9 jupyterlite.zip *
-      - name: Upload artifact
+      - name: Upload GithubPages artifact
         uses: actions/upload-pages-artifact@v3
+        with:
+          path: ./dist
+      - name: Upload zipped artifact
+        uses: actions/upload-artifact@v3
         with:
           path: ./dist/jupyterlite.zip
 
