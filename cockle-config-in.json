@@ -5,7 +5,7 @@
     "nano": {},
     "tree": {},
     "vim": {},
-    "tar": {}
+    "findutils": {}
   },
   "aliases": {
     "git": "git2cpp",
