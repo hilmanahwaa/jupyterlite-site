@@ -10,7 +10,7 @@ jupyterlite-pyodide-kernel==0.7.0
 jupyterlite-javascript-kernel==0.3.0
 
 # Null kernel (optional)
-juoyterlite-echo-kernel
+jupyterlite-echo-kernel
 
 # Language support (optional)
 jupyterlab-language-pack-ar-SA
