@@ -4,7 +4,7 @@
     "lua": {},
     "nano": {},
     "tree": {},
-    "vim": {},
+    "vim": {}
   },
   "aliases": {
     "git": "git2cpp",
