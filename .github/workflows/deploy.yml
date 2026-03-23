@@ -20,7 +20,7 @@ jobs:
           python-version: '3.11'
       - name: Download MicroMamba
         run: |
-          curl -Ls https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -C /usr/local -xvj bin/micromamba
+          curl -Lks https://micro.mamba.pm/api/micromamba/linux-64/latest | sudo tar -C /usr/local -xvj bin/micromamba
           eval "$(micromamba shell hook -s posix)"
       - name: Install the dependencies
         run: |
