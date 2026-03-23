@@ -4,17 +4,6 @@ channels:
   - https://prefix.dev/conda-forge
 dependencies:
   - xeus-lua
-  - xeus-python
-  - matplotlib
-  - numpy
-  - scipy
-  - sympy
-  - pandas
-  - pillow
-  - pillow-heif
-  - aiohttp
-  - pycairo
-  - fonttools
   - xeus-cpp
   - boost-cpp
   - nlohmann_json
@@ -22,5 +11,6 @@ dependencies:
   - freetype
   - zlib
   - openssl
+  - sqlite
   - xeus-sqlite
   - xeus-javascript
